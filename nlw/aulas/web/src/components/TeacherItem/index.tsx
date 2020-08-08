@@ -46,7 +46,7 @@ const TeacherItem: React.FC<TeacherItemProps> = ({ teacher }) => {
                 </p>
 
                 {/* Replace feito para retirar os espaços dos numeros de telefone (caso o usuario colocar) */}
-                <a target="_blank" onClick={createNewConnection} href={`https://wa.me/${teacher.whatsapp.replace(' ', '')}`} type="button">
+                <a target="_blank" onClick={createNewConnection} href={`https://wa.me/${teacher.whatsapp.replace(' ', '').replace('-', '')}`} type="button">
                     <img src={zapIcon} alt="Whatsapp"/>
                     Entrar em contato
                 </a>
