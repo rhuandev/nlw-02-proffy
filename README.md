@@ -24,7 +24,7 @@ Proffy é uma plataforma de estudos, onde alunos se conectam com professores par
 # :rocket: NLW - Next Level Week #02 
 
 <p align="center">
-<img src="git-img/download.svg">
+<img src="git-img/nlw-logo.svg">
 </p>
 
 O NLW é um evento com muito código, desafios, networking e um único objetivo: te levar para o próximo nível.
