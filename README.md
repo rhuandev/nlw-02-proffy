@@ -1,5 +1,5 @@
 <p align="center">
-<img width="250px" src="proffy-logo.png">
+<img width="250px" src="git-img/proffy-logo.png">
 </p>
 
 # :mortar_board: Proffy - Sua plataforma de estudos online
@@ -24,7 +24,7 @@ Proffy é uma plataforma de estudos, onde alunos se conectam com professores par
 # :rocket: NLW - Next Level Week #02 
 
 <p align="center">
-<img src="download.svg">
+<img src="git-img/download.svg">
 </p>
 
 O NLW é um evento com muito código, desafios, networking e um único objetivo: te levar para o próximo nível.
