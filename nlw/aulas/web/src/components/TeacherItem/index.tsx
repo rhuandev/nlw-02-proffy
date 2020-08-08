@@ -2,37 +2,54 @@ import React from 'react';
 import zapIcon from '../../assets/images/icons/whatsapp.svg';
 
 import './styles.css';
+import api from '../../services/api';
 
-function TeacherItem() {
+export interface Teacher {
+    avatar: string,
+    bio: string,
+    cost: number,
+    id: number,
+    name: string,
+    subject: string,
+    whatsapp: string
+}
+
+interface TeacherItemProps {
+    teacher: Teacher
+}
+
+const TeacherItem: React.FC<TeacherItemProps> = ({ teacher }) => {
+    function createNewConnection() {
+        api.post('connections', {
+            user_id: teacher.id
+        })
+    }
+
     return (
         <article className="teacher-item">
             <header>
-                <img src="https://media-exp1.licdn.com/dms/image/C4D03AQGX4heUT_Owuw/profile-displayphoto-shrink_400_400/0?e=1602115200&v=beta&t=pU9AXywr5Pmn4i9ir3coeq0PR7qYnSDiwfeTHhbUo8w" alt="Rhuan Carlos"/>
+                <img src={ teacher.avatar } alt={ teacher.name }/>
                 <div>
-                    <strong>Rhuan Carlos</strong>
-                    <span>Desenvolvedor Front-End</span>
+                <strong>{ teacher.name }</strong>
+                    <span>{ teacher.subject }</span>
                 </div>
             </header>
 
             <p>
-            Bacon ipsum dolor amet ribeye andouille corned beef jowl sausage landjaeger. 
-            <br/> <br/>
-            Drumstick cupim chislic burgdoggen short loin tri-tip brisket filet mignon kielbasa 
-            bresaola strip steak flank meatloaf pork chop hamburger. Doner meatloaf leberkas cow 
-            filet mignon andouille chuck capicola ball tip short ribs burgdoggen pork loin tongue. 
-            Chislic jowl swine ribeye andouille. Pig ham doner kevin chislic.
+                { teacher.bio }
             </p>
 
             <footer>
                 <p>
                     Preço/Hora  
-                    <strong>R$ 80,00</strong>
+                    <strong>R$ { teacher.cost }</strong>
                 </p>
 
-                <button type="button">
+                {/* Replace feito para retirar os espaços dos numeros de telefone (caso o usuario colocar) */}
+                <a target="_blank" onClick={createNewConnection} href={`https://wa.me/${teacher.whatsapp.replace(' ', '')}`} type="button">
                     <img src={zapIcon} alt="Whatsapp"/>
                     Entrar em contato
-                </button>
+                </a>
             </footer>
         </article>
     )
